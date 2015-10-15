@@ -1,7 +1,5 @@
 function[x1, N, Morphs,Morphs_c, time_markRint, time_RR, P_abs, time_RR2, R_loc,R_value,S_loc,S_value,Q_loc,Q_value,T_loc,T_value,P_loc,P_value ] = afib_check_apr14_fn( Input_ECG, Fs )
 
-%load('D:\matlab2011a1\matlab2011a\bin\Cardio24\MIT BIH Database Afib hour\04015m1h.mat')
-%val=Input_ECG;
   val=Input_ECG';
     val=(val-1024)/200;
     flag=0;
@@ -9,27 +7,11 @@ function[x1, N, Morphs,Morphs_c, time_markRint, time_RR, P_abs, time_RR2, R_loc,
     x1=val(1,1:end);
  else
     x1=-val(1,1:end);
-     end 
-
-%  load('D:\matlab2011a1\matlab2011a\bin\Cardio24\r86.mat')
-%   x1=r86;
-%   x1=x1';
-
- %x1 = load('ECG3.dat');  % load the ECG signal from the file
+     end
 
 fs = Fs;              % Sampling rate
 N = length (x1);       % Signal length
 t = [0:N-1]/fs;        % time index
-
-
-% figure(1)
-% subplot(2,1,1)
-% plot(t,x1)
-% xlabel('second');ylabel('Volts');title('Input ECG Signal')
-% subplot(2,1,2)
-% plot(t(200:1200),x1(200:1200))
-% xlabel('second');ylabel('Volts');title('Input ECG Signal 1-3 second')
-% xlim([1 6])
 
 
 %xdum for P wave analysis
@@ -40,15 +22,6 @@ x1 = x1 - mean (x1 );    % cancel DC conponents
 mag_x1=max(abs(x1));
 x1 = x1/ max( abs(x1 )); % normalize to one
 
-% figure(2)
-% subplot(2,1,1)
-% plot(t,x1)
-% xlabel('second');ylabel('Volts');title(' ECG Signal after cancellation DC drift and normalization')
-% subplot(2,1,2)
-% plot(t(200:1200),x1(200:1200))
-% xlabel('second');ylabel('Volts');title(' ECG Signal 1-3 second')
-% xlim([1 6])
-
 %Low Pass Filtering
 % LPF (1-z^-6)^2/(1-z^-1)^2
 b=[1 0 0 0 0 0 -2 0 0 0 0 0 1];
@@ -58,16 +31,6 @@ h_LP=filter(b,a,[1 zeros(1,12)]); % transfer function of LPF
 x2 = conv (x1 ,h_LP);
 %x2 = x2 (6+[1: N]); %cancle delay
 x2 = x2/ max( abs(x2 )); % normalize , for convenience .
-
-% figure(3)
-% subplot(2,1,1)
-% plot([0:length(x2)-1]/fs,x2)
-% xlabel('second');ylabel('Volts');title(' ECG Signal after Low Pass Filtering')
-% xlim([0 max(t)])
-% subplot(2,1,2)
-% plot(t(200:1200),x2(200:1200))
-% xlabel('second');ylabel('Volts');title(' ECG Signal 1-3 second')
-% xlim([1 6])
 
 %High Pass Filtering
 % HPF = Allpass-(Lowpass) = z^-16-[(1-z^-32)/(1-z^-1)]
@@ -80,16 +43,6 @@ x3 = conv (x2 ,h_HP);
 %x3 = x3 (16+[1: N]); %cancle delay
 x3 = x3/ max( abs(x3 ));
 
-% figure(4)
-% subplot(2,1,1)
-% plot([0:length(x3)-1]/fs,x3)
-% xlabel('second');ylabel('Volts');title(' ECG Signal after High Pass Filtering')
-% xlim([0 max(t)])
-% subplot(2,1,2)
-% plot(t(200:1200),x3(200:1200))
-% xlabel('second');ylabel('Volts');title(' ECG Signal 1-3 second')
-% xlim([1 6])
-
 
 %Derivative Filter
 
@@ -100,28 +53,9 @@ x4 = conv (x3 ,h);
 x4 = x4 (2+[1: N]);
 x4 = x4/ max( abs(x4 ));
 
-% figure(5)
-% subplot(2,1,1)
-% plot([0:length(x4)-1]/fs,x4)
-% xlabel('second');ylabel('Volts');title(' ECG Signal after Derivative Filter')
-% subplot(2,1,2)
-% plot(t(200:1200),x4(200:1200))
-% xlabel('second');ylabel('Volts');title(' ECG Signal 1-3 second')
-% xlim([1 6])
-
-
 %Squaring
 x5 = x4 .^2;
 x5 = x5/ max( abs(x5 ));
-
-% figure(6)
-% subplot(2,1,1)
-% plot([0:length(x5)-1]/fs,x5)
-% xlabel('second');ylabel('Volts');title(' ECG Signal Squaring')
-% subplot(2,1,2)
-% plot(t(200:1200),x5(200:1200))
-% xlabel('second');ylabel('Volts');title(' ECG Signal 1-3 second')
-% xlim([1 6])
 
 
 %Moving Window Integration
@@ -135,15 +69,6 @@ x6 = conv (x5 ,h);
 x6 = x6 (15+[1: N]);
 x6 = x6/ max( abs(x6 ));
 
-% figure(7)
-% subplot(2,1,1)
-% plot([0:length(x6)-1]/fs,x6)
-% xlabel('second');ylabel('Volts');title(' ECG Signal after Averaging (Moving Window Integration')
-% subplot(2,1,2)
-% plot(t(200:1200),x6(200:1200))
-% xlabel('second');ylabel('Volts');title(' ECG Signal 1-3 second')
-% xlim([1 6])
-
 %Find QRS Points Which it is different than Pan-Tompkins algorithm
 
 % figure(7)
@@ -151,19 +76,6 @@ x6 = x6/ max( abs(x6 ));
 max_h = max(x6);
 thresh = mean (x6 );
 poss_reg =(x6>thresh*max_h);
-
-% figure (8)
-% subplot(2,1,1)
-% hold on
-% plot (t(200:1200),x1(200:1200)/max(x1))
-% box on
-% xlabel('second');ylabel('Integrated')
-% xlim([1 6])
-% 
-% subplot(2,1,2)
-% plot (t(200:1200),x6(200:1200)/max(x6))
-% xlabel('second');ylabel('Integrated')
-% xlim([1 6])
 
 left = find(diff([0 poss_reg])==1);
 right = find(diff([poss_reg 0])==-1);
@@ -191,100 +103,6 @@ for i=1:length(left)
         S_loc(i) = S_loc(i)-1+R_loc(i); % add offset
 
 end
-
-% there is no selective wave
-% Q_loc=Q_loc(find(Q_loc~=0));
-% R_loc=R_loc(find(R_loc~=0));
-% S_loc=S_loc(find(S_loc~=0));
-
-
-%Finding T wave %similar to previous algo 
-
-% T_loc=ones(1,length(left)-1);
-% for z=1:length(left)-1
-%     len=floor(0.75*(left(z+1)-right(z)));
-%     xt1=x1(right(z):right(z)+len);
-%     %Derivative Filter
-%     % Make impulse response
-%     h = [-1 -2 0 2 1]/8;
-%     xt2 = conv (xt1 ,h);
-%     xt2 = xt2 (2+[1: length(xt1)]);
-%     xt2 = xt2/ max( abs(xt2 ));
-%     %squaring
-%     xt3 = xt2 .^2;
-%     xt3 = xt3/ max( abs(xt3 ));
-%     %average filter
-%     h = ones (1 ,31)/31;
-%     Delay = 30; 
-%     xt4 = conv (xt3 ,h);
-%     xt4 = xt4 (15+[1: length(xt1)]);
-%     xt4 = xt4/ max( abs(xt4 ));
-%     %threshold
-%     max_t = max(xt4);
-%     thresh_t = mean (xt4 );
-%     poss_reg_t =(xt4>thresh_t*max_t);
-%     left_t = find(diff([0 poss_reg_t])==1);
-%     right_t = find(diff([poss_reg_t 0])==-1);
-%     xt5=zeros(1,length(xt4));
-%     for k=1:length(left_t)    
-%         xt5(left_t(k):right_t(k))=1;    
-%     end
-%      figure(10+z)
-%        subplot(3,1,1)
-%        plot(xt1)
-%        subplot(3,1,2)
-%        plot(xt4)
-%        subplot(3,1,3)
-%        plot(xt5)
-%     if(length(left_t)==0)
-%         disp('');
-%     elseif(left_t(1)==1&&length(left_t)>1)
-%          xt1_diff=diff(xt1(left_t(2):right_t(2)));
-%          for q=left_t(2):right_t(2)-2
-%              if (xt1_diff(q-left_t(2)+1)<0.001)
-%                  T_loc(z)=q-1+left_t(2)+right(z);
-%                  %T_loc(z)=q-1+right(z);
-%                  break
-%              end             
-%          end         
-% %          [T_value(z) T_loc(z)] = (max( xt1(left_t(2):right_t(2))));                
-% %          T_loc(z)=T_loc(z)-1+left_t(2)+right(z);
-%          T_value(z)=x1(T_loc(z));
-%     else         
-%          xt1_diff=diff(xt1(left_t(1):right_t(1)));
-%          for q=left_t(1):right_t(1)-2
-%              if (abs(xt1_diff(q-left_t(1)+1))<0.001)
-%                  T_loc(z)=q-1+left_t(1)+right(z);
-%                  %T_loc(z)=q-1+right(z);
-%                  break
-%              end             
-%          end
-% %         [T_value(z) T_loc(z)] = (max( xt1(left_t(1):right_t(1))));        
-% %         T_loc(z)=T_loc(z)-1+left_t(1)+right(z);
-%         T_value(z)=x1(T_loc(z));           
-%     end    
-%       
-% end
-%%
-% %%
-% %Finding T waves - algo similar to P waves
-% T_loc=ones(1,length(left)-1);
-% for z=2:length(left)-1
-%     len=floor(0.6*(Q_loc(z+1)-right(z)));
-%     xt1=x2(right(z):right(z)+len);
-%     [T_value(z) T_loc(z)] = (max( xt1));
-%     T_loc(z)=T_loc(z)-1+right(z);
-%     T_value(z)=x1(T_loc(z));    
-%     
-%     figure(10+z)
-%       subplot(3,1,1)
-%         plot(x1(right(z):right(z)+len))
-%         subplot(3,1,2)
-%         plot(xt1)
-%         subplot(3,1,3)
-%         plot(xt1)
-%end
-
 
 %%
 %Updated T wave algorithm
@@ -359,24 +177,6 @@ for z=2:length(left)-1
             T_inv(z)=1; %T is inverted
             %disp('cond2');
         end
-        
-%         %adjusting to avoid negative or zero subscript
-%         if(T_value_left(z)<=0)
-%             T_value_left(z)=1;
-%         end
-%         
-%         if(T_loc_left(z)<=0)
-%             T_loc_left(z)=1;
-%         end
-%         
-%          if(T_value_right(z)<=0)
-%             T_value_right(z)=1;
-%         end
-%         
-%         if(T_loc_right(z)<=0)
-%             T_loc_right(z)=1;
-%         end
-        
         
     end
     if (T_inv(z)==0)
@@ -454,33 +254,11 @@ for z=1:length(left)-1
                 count_p(z)=0;
             end
        end
-       
-        %||amp_p(z)<0.010||amp_p(z)>0.025
-       
-%        slope_thresh=1e-5;
-%        if(T_inv(z)==1)
-%             xT_right=x1(T_loc(z):floor(T_loc(z)+(200/1000*fs))); %finding right limit of inv T
-%             [T_inv_rt_val(z) T_inv_rt_loc(z)]=max(xT_right);  %finding right edge of inv T wave
-%             T_inv_rt_loc(z)=T_inv_rt_loc(z)+T_loc(z)-1; %adding offset
-%             T_inv_rt_val(z)=x1(T_inv_rt_loc(z)); %updating value
-%             slope_rt=abs(0.1*(T_inv_rt_val(z)-x1(T_loc(z)))/(T_inv_rt_loc(z)-T_loc(z))) %slope of right arm of inverted T
-%             slope_T_p=abs(0.1*(x1(P_loc_left(z))-x1(T_loc(z)))/(P_loc_left(z)-T_loc(z))); %slope of left of P with T
-%             delta_slope=abs(slope_rt-slope_T_p); %diff in slope
-%             if(delta_slope<slope_thresh) %if p lies in the right arm of inv T then this will be very small
-%                 count_p(z)=0;  %in that case reject P as proper
-%             end
-%        end       
       
         if (P_loc_left(z)<0)
             P_loc_left=1;
         end
         
-%         [pks,locs] = findpeaks(xp1);
-%         [sortpks, sortlocs]=sort(pks, 'descend');  
-%         if(numel(sortlocs)~=0)
-%             P_loc(z+1)=locs(sortlocs(1))-1+Q_loc(z+1)-len-6;
-%             P_value(z+1)=x1(P_loc(z+1));
-%         end
     end    
 end
 
@@ -523,15 +301,6 @@ for i=1:length(left)-1
 
 end
 
-% figure(9)
-% subplot(2,1,1)
-% title('ECG Signal with R points');
-% plot (t,x1/max(x1) , t(R_loc) ,R_value , 'r^', t(S_loc) ,S_value, '*',t(Q_loc) , Q_value, 'o', t(T_loc),T_value, 'go',t(P_loc_ref), plot_good_p, 'k*',t(P_loc_left),P_value_left,'rX',t(P_loc_right),P_value_right,'rX');
-% legend('ECG','R','S','Q');
-%subplot(2,1,2)
-%plot (t,x1/max(x1) , t(R_loc) ,R_value , 'r^', t(S_loc) ,S_value, '*',t(Q_loc) , Q_value, 'o', t(T_loc),T_value, 'go',t(P_loc), P_value, 'k*');
-%xlim([2 8])
-
 len_morph=length(x1);
 QT=zeros(1,len_morph);
 QRS=zeros(1,len_morph);
@@ -569,16 +338,7 @@ for i=2:length(R_loc)-1
     end
 end
 num_irr=sum(markRint); %no of irr RR intervals
-% figure(10)
-% plot(t,time_markRint,'b')
-% hold on
-% plot(t,x1/max(x1),'g')
-% hold on 
-% plot(t,time_RR/max(time_RR),'r')
 
-%condition 1 of Dr.MM's criteria for afib
-%disp(' No. of isolated irregular beats: ')
-%disp(num_irr)
 Num_IRR=num_irr;
 Perc_IRR=num_irr/length(diffdata)*100;
 if(num_irr>=(0.05*length(R_loc)));
@@ -611,16 +371,7 @@ for i=1:length(R_loc)-20
         if((beat_dur(j))<(thresh-.1*thresh)||(beat_dur(j))>(thresh+0.1*thresh))
             bool_window(j)=1;                    
         end          
-    end 
-    
-%     figure(20+i)
-%     subplot(3,1,1)
-%     plot(time_win,window)
-%     subplot(3,1,2)
-%     plot(bool_window)
-%     subplot(3,1,3)    
-%     plot(beat_dur)    
-    
+    end
     sums=0;%bool_window(1); %to store 1's for irregularities
     summax=sums;%max sum upto a certain iteration
     for j=1:19
@@ -681,37 +432,6 @@ for j=1:length(count_p)-4
         Num_consec_P_abs=Num_consec_P_abs+1;
    end
 end
-
-% cpi_x_time_RR2=count_p_inv.*time_RR2;
-
-
-
-%figure(300)
-%plot (t,x1/max(x1), t(R_loc) ,R_value , 'r^', t(S_loc) ,S_value, '*',t(Q_loc) , Q_value, 'o', t(T_loc),T_value, 'go',t(P_loc), plot_good_p, 'k*',t(P_loc_left),P_value_left,'rX',t(P_loc_right),P_value_right,'rX');
-% plot (t,x1/max(x1),'g',t(P_loc_ref), plot_good_p, 'k*');
-% hold on 
-% plot(t,time_RR/max(time_RR),'r')
-% hold on
-% plot(t,time_RR2,'b')
-
-% figure(301)
-% %plot (t,x1/max(x1), t(R_loc) ,R_value , 'r^', t(S_loc) ,S_value, '*',t(Q_loc) , Q_value, 'o', t(T_loc),T_value, 'go',t(P_loc), plot_good_p, 'k*',t(P_loc_left),P_value_left,'rX',t(P_loc_right),P_value_right,'rX');
-% plot (t,x1/max(x1),'g',t(P_loc_ref), plot_good_p, 'k*');
-% hold on 
-% plot(t,time_RR/max(time_RR),'r')
-% hold on
-% plot(t,time_RR2,'b')
-
-%P Presence
-%figure(302)
-%plot (t,x1/max(x1), t(R_loc) ,R_value , 'r^', t(S_loc) ,S_value, '*',t(Q_loc) , Q_value, 'o', t(T_loc),T_value, 'go',t(P_loc), plot_good_p, 'k*',t(P_loc_left),P_value_left,'rX',t(P_loc_right),P_value_right,'rX');
-% plot (t,x1/max(x1),'g');
-% hold on 
-% plot(t,time_RR/max(time_RR),'r')
-% hold on
-% plot(t,P_abs,'k')
-% hold on
-% plot(t,time_RR2,'b')
 
 Morphs=zeros(1,12);
 
@@ -789,18 +509,5 @@ if ((Num_consec_P_abs*100)/Total_QRS<1)
     Morphs_c(12,:)='  Normal  ';
 end
 
-%%
-% count_p_inverted=ones(1,length(count_p));
-% loc=zeros(1,length(count_p));
-% for i=1:length(count_p)
-%    if(count_p(i)==1)
-%        count_p_inverted(i)=0;
-%    end
-% end
-% for j=1:length(count_p)
-%    if(count_p_inverted(i)==1&&count_p_inverted(i+1)==1&&count_p_inverted(i+2)==1&& count_p_inverted(i+3)==1)
-%         loc(j)=j;
-%    end
-% end
 end
 
