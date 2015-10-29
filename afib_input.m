@@ -1,4 +1,4 @@
-function [ op ] = afib_input_july06( input_file, sampFreq )
+function [ op ] = afib_input( input_file, sampFreq )
 %AFIB_INPUT_MAY02 Summary of this function goes here
 %   Detailed explanation goes here
 
