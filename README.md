@@ -85,10 +85,13 @@ Description of 'afib_check' Function:
         data: values of P peaks
 
 Few flowcharts of algorithm:
-1. QRS Detection :
+
+QRS Detection :
+
     <img src="https://f13e59e9-a-62cb3a1a-s-sites.googlegroups.com/site/harshavardhaniitg/projects/cardio24_data/QRS%20Detection.png?attachauth=ANoY7cpWBSuV2oHcoq0m0hhM38CsSaqjawe1cv_UY5TEFP3IrTw4l0QuFYUzOibv8pCX6Wrfep8MeCsYR4qAF8dYxUcUKjWAQx5ARWYfIBWskAs5IlDEBQZpUOWsWwZJDe3_VykWVewGmzqyYWx0aj4taSCLFKIzx0wNzV-sp_-LFYXbVXAMYojsN96nAzuf_0wEojL6eIDsePj2TwU3GBinvIyjnhqrcxqKPIBpH0sSO78fErVJKTh40c-SfFZ3aCh1d95ISnuQ&attredirects" alt = "alt text" width="500" height="500">
 
-2. Rhythm Detection: 
+Rhythm Detection: 
+
    <img src="https://f13e59e9-a-62cb3a1a-s-sites.googlegroups.com/site/harshavardhaniitg/projects/cardio24_data/Rhythm%20Detection%20FC%20Step%201.png?attachauth=ANoY7cqwPuOGCOX2zAxvWwGHNMo4gcELnbYoqoHCkMhW7oh4_-3y7SSANiI-kiPmR9qPf0GcARfyUq4v9_UrgZRWQkxlbtLuUsdmRnvznxTgen2ElpWT6XwkZxeQVL6_9Tf8TesRPFRVfZAu_I3O2UpFyj_VCua4B8keVlyLjbjSSleAw1WQ8Q4q260xlIkydrXvUnDEVflwGn0LmBKfnFbcQYNqeG_qjguFr6CgSsmXLxFLOuOuz0tRnEbm5vzUwTYZ3FK435FidpRdKPpZl3iLWR6-3TIpcA%3D%3D&attredirects=0" alt="alt text" width="500" height="500">
 
 
@@ -99,6 +102,7 @@ Resources:
       i) Physionet ATM Toolkit :  https://physionet.org/cgi-bin/atm/ATM. This code is tested on 1 hour ECG signals from  MIT-BIH Arrhythmia Database and QT Database
   
 Results:
+  
+  PQRST Detection:
 
-1. PQRST Detection:
-<img src="https://f13e59e9-a-62cb3a1a-s-sites.googlegroups.com/site/harshavardhaniitg/projects/cardio24_data/PQRST_Det.png?attachauth=ANoY7coQpXEE_PIAfaZeZ_V78Rzpe0P2OOXg5kdowU2HCnUGL6dkcDksfW7wBrB_kcIDPU4Ail4Lo6DD0bzywt96KCZ5E7rwHAgD6jR56wCDelpte736ZAR-CDLzrjMa15TGi76u4dTKbkc74hGfuLkL02MUd9sHsSCF8DkZyDSWU4hsfP7U0Dur_GNtcxHzpBroJ6Kq1_kdjz9EC8noqJD3YBWYts_nkS3Gojsmfl-YdSI_DNi-3CEv1CxR-PsSgx1PSrjrx7KJ&attredirects=0" alt="alt text" width="500" height="300">
+<img src="https://f13e59e9-a-62cb3a1a-s-sites.googlegroups.com/site/harshavardhaniitg/projects/cardio24_data/PQRST_Det.png?attachauth=ANoY7coQpXEE_PIAfaZeZ_V78Rzpe0P2OOXg5kdowU2HCnUGL6dkcDksfW7wBrB_kcIDPU4Ail4Lo6DD0bzywt96KCZ5E7rwHAgD6jR56wCDelpte736ZAR-CDLzrjMa15TGi76u4dTKbkc74hGfuLkL02MUd9sHsSCF8DkZyDSWU4hsfP7U0Dur_GNtcxHzpBroJ6Kq1_kdjz9EC8noqJD3YBWYts_nkS3Gojsmfl-YdSI_DNi-3CEv1CxR-PsSgx1PSrjrx7KJ&attredirects=0" alt="alt text" width="500" height="250">
