@@ -1,4 +1,4 @@
-function[x1, N, Morphs,Morphs_c, time_markRint, time_RR, P_abs, time_RR2, R_loc,R_value,S_loc,S_value,Q_loc,Q_value,T_loc,T_value,P_loc,P_value ] = afib_check_apr14_fn( Input_ECG, Fs )
+function[x1, N, Morphs,Morphs_c, time_markRint, time_RR, P_abs, time_RR2, R_loc,R_value,S_loc,S_value,Q_loc,Q_value,T_loc,T_value,P_loc,P_value ] = afib_check( Input_ECG, Fs )
 
   val=Input_ECG';
     val=(val-1024)/200;
