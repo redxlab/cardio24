@@ -87,6 +87,6 @@ Explanation of 'afib_check' Function:
 Resources:
   1. ECG Data
 
-      i) Physionet ATM Toolkit :  https://physionet.org/cgi-bin/atm/ATM
+      i) Physionet ATM Toolkit :  https://physionet.org/cgi-bin/atm/ATM. This code is tested on 1 hour ECG signals from  MIT-BIH Arrhythmia Database and QT Database
   
   
