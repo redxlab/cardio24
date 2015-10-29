@@ -102,6 +102,11 @@ Resources:
       i) Physionet ATM Toolkit :  https://physionet.org/cgi-bin/atm/ATM. This code is tested on 1 hour ECG signals from  MIT-BIH Arrhythmia Database and QT Database
   
 Results:
+
+  On QT Database, Physionet: (Overall Accuracy)
+              QRS Complex :  98.9%
+              P Wave      :  96.5%
+              Q Wave      :  94.3%
   
   PQRST Detection:
 
