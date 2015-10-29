@@ -7,7 +7,7 @@ Cardio24 Matlab scripts:
   1. afib_check : Function that takes ECG signal as input and outputs the observed morphologies which would help to identify abnormal parts of the input ECG signal.
   2. afib_input : Function that takes ECG signal as a file (txt file) and Sample Frequency as inputs, passes this data to 'afib_check' function and stores the outputs in a file (csv/json file)  
 
-Explanation of 'afib_check' Function: 
+Description of 'afib_check' Function: 
 
   This code is designed based on parameters of ECG signal (Fs, gain) given for MIT-BIH Database, PhysioNet. Adjust output parameters of this function based on need. 
   
