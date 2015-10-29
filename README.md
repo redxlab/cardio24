@@ -104,6 +104,7 @@ Resources:
 Results:
 
   On QT Database, Physionet: (Overall Accuracy)
+  
               QRS Complex :  98.9%
               P Wave      :  96.5%
               Q Wave      :  94.3%
