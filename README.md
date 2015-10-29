@@ -84,7 +84,7 @@ Description of 'afib_check' Function:
         size: 1x(nQRS-1) vector  (nQRS is number of observed QRS complexes )
         data: values of P peaks
 
-Few flowcharts of algorithm:
+FLOWCHARTS:
 
   QRS Detection :
 
