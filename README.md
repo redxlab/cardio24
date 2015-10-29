@@ -106,3 +106,7 @@ Results:
   PQRST Detection:
 
 <img src="https://f13e59e9-a-62cb3a1a-s-sites.googlegroups.com/site/harshavardhaniitg/projects/cardio24_data/PQRST_Det.png?attachauth=ANoY7coQpXEE_PIAfaZeZ_V78Rzpe0P2OOXg5kdowU2HCnUGL6dkcDksfW7wBrB_kcIDPU4Ail4Lo6DD0bzywt96KCZ5E7rwHAgD6jR56wCDelpte736ZAR-CDLzrjMa15TGi76u4dTKbkc74hGfuLkL02MUd9sHsSCF8DkZyDSWU4hsfP7U0Dur_GNtcxHzpBroJ6Kq1_kdjz9EC8noqJD3YBWYts_nkS3Gojsmfl-YdSI_DNi-3CEv1CxR-PsSgx1PSrjrx7KJ&attredirects=0" alt="alt text" width="500" height="250">
+
+  Irregular Episode Detection on AFIB ECG Signal
+  
+<img src="https://f13e59e9-a-62cb3a1a-s-sites.googlegroups.com/site/harshavardhaniitg/projects/cardio24_data/AFIB%20Blog.png?attachauth=ANoY7cpkgCGz1wJ4X2QQVGerV0lo1nmqp5eHNqnRzjPNq_JeMOFUCEgtJ5Uv2BTtXNYADlyFafvSMDYSbohZKH3H5WWeuNMVctrZmqAN_FGKu1V7kOGaPPTNCcN3f_f4KwgXdHc82KAVFNkjklOIAJug-VOAAcPAj9ItE1M86-5hqfrk03Rp-2HfoG9ZovIylJtvDb97MXJPX26H1boV3rq4_80hEouzKwgwlZPXdPXLis9d3dTJcaD3tzhBSzhbutqmYe7oDgps&attredirects=0" alt="alt text" width="800" height="400">
