@@ -86,7 +86,7 @@ Description of 'afib_check' Function:
 
 Few flowcharts of algorithm:
 1. QRS Detection :
-    <img src="https://f13e59e9-a-62cb3a1a-s-sites.googlegroups.com/site/harshavardhaniitg/projects/cardio24_data/QRS%20Detection.png?attachauth=ANoY7cpWBSuV2oHcoq0m0hhM38CsSaqjawe1cv_UY5TEFP3IrTw4l0QuFYUzOibv8pCX6Wrfep8MeCsYR4qAF8dYxUcUKjWAQx5ARWYfIBWskAs5IlDEBQZpUOWsWwZJDe3_VykWVewGmzqyYWx0aj4taSCLFKIzx0wNzV-sp_-LFYXbVXAMYojsN96nAzuf_0wEojL6eIDsePj2TwU3GBinvIyjnhqrcxqKPIBpH0sSO78fErVJKTh40c-SfFZ3aCh1d95ISnuQ&attredirects" alt = "alt text" style="width:20;height:20">
+    <img src="https://f13e59e9-a-62cb3a1a-s-sites.googlegroups.com/site/harshavardhaniitg/projects/cardio24_data/QRS%20Detection.png?attachauth=ANoY7cpWBSuV2oHcoq0m0hhM38CsSaqjawe1cv_UY5TEFP3IrTw4l0QuFYUzOibv8pCX6Wrfep8MeCsYR4qAF8dYxUcUKjWAQx5ARWYfIBWskAs5IlDEBQZpUOWsWwZJDe3_VykWVewGmzqyYWx0aj4taSCLFKIzx0wNzV-sp_-LFYXbVXAMYojsN96nAzuf_0wEojL6eIDsePj2TwU3GBinvIyjnhqrcxqKPIBpH0sSO78fErVJKTh40c-SfFZ3aCh1d95ISnuQ&attredirects" alt = "alt text" width="20" height="20">
 
 2. Rhythm Detection: 
    ![alt tag](https://f13e59e9-a-62cb3a1a-s-sites.googlegroups.com/site/harshavardhaniitg/projects/cardio24_data/Rhythm%20Detection%20FC%20Step%201.png?attachauth=ANoY7cqwPuOGCOX2zAxvWwGHNMo4gcELnbYoqoHCkMhW7oh4_-3y7SSANiI-kiPmR9qPf0GcARfyUq4v9_UrgZRWQkxlbtLuUsdmRnvznxTgen2ElpWT6XwkZxeQVL6_9Tf8TesRPFRVfZAu_I3O2UpFyj_VCua4B8keVlyLjbjSSleAw1WQ8Q4q260xlIkydrXvUnDEVflwGn0LmBKfnFbcQYNqeG_qjguFr6CgSsmXLxFLOuOuz0tRnEbm5vzUwTYZ3FK435FidpRdKPpZl3iLWR6-3TIpcA%3D%3D&attredirects=0)
