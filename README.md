@@ -91,4 +91,4 @@ Resources:
   
 Results:
 
-![alt tag](https://drive.google.com/file/d/0B15rEvEEKZ3eSUZlcTVsWHY1eGs/view?usp=sharing)
+![alt tag](https://f13e59e9-a-62cb3a1a-s-sites.googlegroups.com/site/harshavardhaniitg/projects/cardio24_data/PQRST_Det.png?attachauth=ANoY7coQpXEE_PIAfaZeZ_V78Rzpe0P2OOXg5kdowU2HCnUGL6dkcDksfW7wBrB_kcIDPU4Ail4Lo6DD0bzywt96KCZ5E7rwHAgD6jR56wCDelpte736ZAR-CDLzrjMa15TGi76u4dTKbkc74hGfuLkL02MUd9sHsSCF8DkZyDSWU4hsfP7U0Dur_GNtcxHzpBroJ6Kq1_kdjz9EC8noqJD3YBWYts_nkS3Gojsmfl-YdSI_DNi-3CEv1CxR-PsSgx1PSrjrx7KJ&attredirects=0)
