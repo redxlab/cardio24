@@ -1,5 +1,5 @@
 # cardio24
-online diagnostic platform that lets one continuously monitor ECG
+An Integrated Platform For Cardiac Health Diagnostics
 
 Software required: MATLAB
 
@@ -96,12 +96,12 @@ Few flowcharts of algorithm:
 
 
 
-Resources:
+RESOURCES:
   1. ECG Data
 
       i) Physionet ATM Toolkit :  https://physionet.org/cgi-bin/atm/ATM. This code is tested on 1 hour ECG signals from  MIT-BIH Arrhythmia Database and QT Database
   
-Results:
+RESULTS:
 
   On QT Database, Physionet: (Overall Accuracy)
   
