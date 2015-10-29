@@ -89,4 +89,6 @@ Resources:
 
       i) Physionet ATM Toolkit :  https://physionet.org/cgi-bin/atm/ATM. This code is tested on 1 hour ECG signals from  MIT-BIH Arrhythmia Database and QT Database
   
-  
+Results:
+
+![image](https://drive.google.com/file/d/0B15rEvEEKZ3eSUZlcTVsWHY1eGs/view?usp=sharing)
