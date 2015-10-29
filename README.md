@@ -84,3 +84,7 @@ Explanation of 'afib_check' Function:
         size: 1x(nQRS-1) vector  (nQRS is number of observed QRS complexes )
         data: values of P peaks
 
+Resources:
+  1. ECG Data
+      i) Physionet ATM Toolkit :  https://physionet.org/cgi-bin/atm/ATM
+  
