@@ -91,4 +91,4 @@ Resources:
   
 Results:
 
-![image](https://drive.google.com/file/d/0B15rEvEEKZ3eSUZlcTVsWHY1eGs/view?usp=sharing)
+![alt tag](https://drive.google.com/file/d/0B15rEvEEKZ3eSUZlcTVsWHY1eGs/view?usp=sharing)
