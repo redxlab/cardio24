@@ -1,7 +1,7 @@
 # cardio24
 An Integrated Platform For Cardiac Health Diagnostics
 
-# Team:
+Team:
 Instructors: Kuldeep Singh Rajput, Rohan Puri, Maulik Majmudar, M.D., Dr.Ramesh Raskar
 
 Students: Harsha Vardhan Pokkalla, Aranya Goswami
