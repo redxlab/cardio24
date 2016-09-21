@@ -3,6 +3,7 @@ An Integrated Platform For Cardiac Health Diagnostics
 
 # Team:
 Instructors: Kuldeep Singh Rajput, Rohan Puri, Maulik Majmudar, M.D., Dr.Ramesh Raskar
+
 Students: Harsha Vardhan Pokkalla, Aranya Goswami
 
 Software required: MATLAB
